@@ -95,12 +95,12 @@ def mainwork(ii):
 
         Quit_Variable = Quit_Variable + 1
 
-        if (Quit_Variable <= 1):
+        if (Quit_Variable <= 3):
             st.write(Quit_Variable)
             print('Error Occurered....Running program again')
             mainwork(ii)
 
-        elif (Quit_Variable > 1):
+        elif (Quit_Variable > 3):
             st.stop()
             exit()
 
@@ -115,20 +115,20 @@ def download_Button(my_data):
 
 if(Choice == 'Single Product'):
     a = st.text_input('ProductCategory')
-    if(len(str(a)) > 0 and Quit_Variable <=10):
+    if(len(str(a)) > 0 and Quit_Variable <=3):
         my_data = mainwork(a)
         st.dataframe(my_data)
 
         download_Button(my_data)
 
-    elif(Quit_Variable>10):
+    elif(Quit_Variable>3):
         st.stop()
         exit()
 
 
 if(Choice == 'Multiple Product'):
     data = st.file_uploader('Upload an Excel File',type=['xlsx','csv'])
-    if(data):
+    if(len(str(data)) > 0 and Quit_Variable <=3):
         temp = pd.read_excel(data)
         l = []
         for iii in temp['Product Name']:
@@ -138,3 +138,5 @@ if(Choice == 'Multiple Product'):
         my_data = pd.concat(l)
 
         download_Button(my_data)
+
+    
