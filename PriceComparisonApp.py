@@ -96,7 +96,7 @@ def mainwork(ii):
         Quit_Variable = Quit_Variable + 1
 
         if (Quit_Variable <= 3):
-            st.write(Quit_Variable)
+            st.write('ERROR CAME AND MAIN FUNCTION IS NOT WORKING PROPERLY ------ ERROR NO -> ', Quit_Variable)
             print('Error Occurered....Running program again')
             mainwork(ii)
 
